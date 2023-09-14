@@ -8,9 +8,6 @@ export const styles = StyleSheet.create({
         width: 120,
         height: 120,
         borderRadius: 16,
-        // display: 'flex',
-        // justifyContent: 'flex-end',
-        // alignItems: 'center',
         backgroundColor: backgroundTextColor,
     },
     wrapperSvg: {
@@ -19,7 +16,7 @@ export const styles = StyleSheet.create({
         right: -12,
         bottom: 12,
         width: 25,
-        borderRadius: '50%'
+        borderRadius: 100,
     },
     svgAdd: {
         color: accentColor,
