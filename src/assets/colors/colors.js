@@ -9,5 +9,6 @@ export const backgroundTextColor = '#F6F6F6';
 export const borderInputColor = '#E8E8E8';
 
 export const iconFillColor = '#BDBDBD';
+export const iconTabColor = 'rgba(33, 33, 33, 0.8)'
 
 export const backgroundColor = '#FFF';
