@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native";
-import { backgroundColor, backgroundTextColor, borderInputColor, primaryTextColor } from "../../assets/colors/colors";
+import { accentColor, accentLinkTextColor, backgroundColor, backgroundTextColor, borderInputColor, primaryTextColor } from "../../assets/colors/colors";
 
 export const styles = StyleSheet.create({
   container: {
     padding: 32,
     height: 490,
-    width: '100%',
     backgroundColor: backgroundColor,
     alignItems: "center",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
+  },
+  keyboardVisible: {
+    width: '100%'
   },
   text: {
     marginBottom: 35,
@@ -37,7 +39,19 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 18,
   },
+  inputOnFocus: {
+    borderColor: accentColor,
+  },
   inputRelative: {
     position: 'relative',
+  },
+  textAuth: {
+    color: accentLinkTextColor,
+    fontFamily: 'RobotoRegular',
+    fontSize: 16,
+    lineHeight: 18,
+  },
+  textAuthAccent: {
+    textDecorationLine: 'underline',
   },
 });
