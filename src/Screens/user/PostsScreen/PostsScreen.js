@@ -13,14 +13,15 @@ const PostsStack = createStackNavigator();
 
 const PostsScreen = () => {
   return (
-    <PostsStack.Navigator screenOptions={{ tabBarShowLabel: false}}>
+    <PostsStack.Navigator screenOptions={{ tabBarShowLabel: false }}>
       <PostsStack.Screen
         name="PostsContent"
         component={PostsContentScreen}
-          options={{
+        options={{
           title: "Публікації",
           headerStyle: styles.header,
-            headerTitleStyle: styles.title,
+          headerTitleAlign: 'center',
+          headerTitleStyle: styles.title,
           headerRight: () => (
             <TouchableOpacity
               onPress={() => alert("This is a button!")}
@@ -35,10 +36,10 @@ const PostsScreen = () => {
         }}
 
       />
-      <PostsStack.Screen name="Comments" component={CommentsScreen}/>
-      <PostsStack.Screen name="Location" component={MapScreen}/>
+      <PostsStack.Screen name="Comments" component={CommentsScreen} />
+      <PostsStack.Screen name="Location" component={MapScreen} />
     </PostsStack.Navigator>
-  )
+  );
 }
 
 export default PostsScreen

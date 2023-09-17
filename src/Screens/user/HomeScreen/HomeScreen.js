@@ -15,13 +15,12 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <UserTab.Navigator screenOptions={{ tabBarShowLabel: false, }}>
+    <UserTab.Navigator screenOptions={{ tabBarShowLabel: false }}>
       <UserTab.Screen
         name="Posts"
         component={PostsScreen}
         options={{
           headerShown: false,
-          
           tabBarIcon: ({ focused, size, color }) => (
             <TouchableOpacity onPress={() => navigation.navigate('Posts')}>
               <AntDesign name="appstore-o" size={24} style={styles.icon} />
@@ -35,6 +34,7 @@ const HomeScreen = () => {
         options={{
           title: 'Створити публікацію',
           headerTitleStyle: styles.title,
+          headerTitleAlign: 'center',
           tabBarIcon: () => (
             <TouchableOpacity style={styles.iconActiveWrapper} onPress={() => navigation.navigate('CreatePosts')}>
               <AntDesign name="plus" size={24} style={styles.iconAccent} />
@@ -52,6 +52,7 @@ const HomeScreen = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
+          headerTitleAlign: 'center',
           tabBarIcon: () => (
             <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
               <AntDesign name="user" size={24} style={styles.icon} />
