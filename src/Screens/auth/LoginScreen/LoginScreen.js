@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { View, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import React from 'react'
-import BackgroundAuth from '../../components/BackgroundAuth/BackgroundAuth';
-import LoginForm from '../../components/LoginForm/LoginForm';
-
+import BackgroundAuth from '../../../components/BackgroundAuth/BackgroundAuth';
+import LoginForm from '../../../components/LoginForm/LoginForm';
 
 const LoginScreen = () => {
     return (

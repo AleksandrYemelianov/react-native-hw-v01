@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, KeyboardAvoidingView, Platform, Alert, TouchableOpacity, Keyboard } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import { accentColor } from '../../assets/colors/colors';
 import ButtonAuth from '../ButtonAuth/ButtonAuth';
 import ButtonHiddenPassword from '../ButtonHiddenPassword/ButtonHiddenPassword';
 import { styles } from './LoginFormStyles';
 
 const LoginForm = () => {
+    const navigation = useNavigation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,6 +16,12 @@ const LoginForm = () => {
     const [visiblePassword, setVisiblePassword] = useState(false)
     const handleSetVisible = () => setVisiblePassword(prevState => !prevState)
 
+    const resetForm = () => {
+        setEmail('');
+        setPassword('');
+        Keyboard.dismiss()
+    };
+ 
     const handleSubmitLogin = () => {
         const isEmpty = email.trim() === '' || password.trim() === '';
         const validEmail = (email) => {
@@ -34,13 +42,10 @@ const LoginForm = () => {
         console.log('Password: ', password)
         console.groupEnd()
 
-        setEmail('');
-        setPassword('');
-        Keyboard.dismiss()
+        resetForm();
+        navigation.navigate("Home");
 
     };
-
-    const currentOS = Platform.OS === 'ios';
 
     return (
         
@@ -72,7 +77,7 @@ const LoginForm = () => {
                     </View>
                 </View>
                 <ButtonAuth onPress={handleSubmitLogin} text='Увійти' />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Registration")}>
                     <Text style={styles.textAuth}>
                         Немає акаунту? <Text style={styles.textAuthAccent}>Зареєструватися</Text>
                     </Text>

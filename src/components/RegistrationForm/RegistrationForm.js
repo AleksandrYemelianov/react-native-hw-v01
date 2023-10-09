@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { View, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Alert } from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, TouchableOpacity, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { accentColor } from '../../assets/colors/colors';
 import AvatarAuth from '../AvatarAuth/AvatarAuth';
 import ButtonAuth from '../ButtonAuth/ButtonAuth';
@@ -7,6 +8,8 @@ import ButtonHiddenPassword from '../ButtonHiddenPassword/ButtonHiddenPassword';
 import { styles } from './RegistrationFormStyles';
 
 const RegistrationForm = () => {
+    const navigation = useNavigation();
+
     const [login, setLogin] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,6 +19,13 @@ const RegistrationForm = () => {
     const [focusPassword, setFocusPassword] = useState(false);
     const [visiblePassword, setVisiblePassword] = useState(false)
     const handleSetVisible = () => setVisiblePassword(prevState => !prevState)
+
+    const resetForm = () => {
+        setLogin('')
+        setEmail('');
+        setPassword('');
+        Keyboard.dismiss()
+    };
 
     const handleSubmitLogin = () => {
         const isEmpty = login.trim() === '' || email.trim() === '' || password.trim() === '';
@@ -38,17 +48,10 @@ const RegistrationForm = () => {
         console.log('Password: ', password)
         console.groupEnd()
 
-        resetForm()
+        resetForm();
+        navigation.navigate("Home")
     };
 
-    const resetForm = () => {
-        setLogin('')
-        setEmail('');
-        setPassword('');
-        Keyboard.dismiss()
-    };
-
-    const currentOS = Platform.OS === 'ios';
     return (
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={-100} style={styles.keyboardVisible} >
             <View style={styles.container}>
@@ -86,7 +89,7 @@ const RegistrationForm = () => {
                     </View>
                 </View>
                 <ButtonAuth onPress={handleSubmitLogin} text='Зареєстуватися' />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                     <Text style={styles.textAuth}>
                         Вже є акаунт? <Text style={styles.textAuthAccent}>Увійти</Text>
                     </Text>
