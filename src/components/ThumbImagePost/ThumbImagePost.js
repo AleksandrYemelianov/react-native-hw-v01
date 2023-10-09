@@ -4,7 +4,7 @@ import { styles } from './ThumbImagePostStyle';
 
 const ThumbImagePost = ({children, caption, touchableText}) => {
     return (
-        <>
+        <View style={styles.postWrapperTopSection}>
             <View style={styles.postWrapperImg}>
                 <Image />
                 {children}
@@ -16,7 +16,7 @@ const ThumbImagePost = ({children, caption, touchableText}) => {
                         {touchableText}
                     </Text>
                 </TouchableOpacity>}
-        </>
+        </View>
     );
 }
 

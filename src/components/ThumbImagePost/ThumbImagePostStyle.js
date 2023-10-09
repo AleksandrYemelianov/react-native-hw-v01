@@ -2,6 +2,9 @@ import { StyleSheet } from "react-native";
 import { backgroundTextColor, iconFillColor, primaryTextColor } from "../../assets/colors/colors";
 
 export const styles = StyleSheet.create({
+    postWrapperTopSection: {
+        marginBottom: 8,
+    },
     postWrapperImg: {
         position: 'relative',
         width: '100%',

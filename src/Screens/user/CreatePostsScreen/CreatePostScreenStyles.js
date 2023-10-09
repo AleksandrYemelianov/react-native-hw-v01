@@ -1,5 +1,6 @@
 import { Platform, StyleSheet } from "react-native";
-import { backgroundColor, backgroundTextColor, iconFillColor } from "../../assets/colors/colors";
+import { backgroundColor, backgroundTextColor, iconFillColor } from "../../../assets/colors/colors";
+
 
 export const styles = StyleSheet.create({
     thumbSvg: {
@@ -18,4 +19,16 @@ export const styles = StyleSheet.create({
     iconSvg: {
         color: iconFillColor,
     },
+    buttonDelete: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 'auto',
+        // marginBottom: '10%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: backgroundTextColor,
+        width: 80,
+        height: 40,
+        borderRadius: 25,
+    }
 })
